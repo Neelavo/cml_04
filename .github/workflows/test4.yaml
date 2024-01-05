@@ -15,11 +15,10 @@ jobs:
           pip install -r requirements.txt
           python copy_of_bestfitline.py
 
-          echo "## Model Metrics" >> report.md
+          
           cat metrics.txt >> report.md
 
-          echo "## Data viz" >> report.md
-          cml-publish input_data.png --md >> report.md
-          cml-publish predline.png --md >> report.md
+          echo '![](./input_data.png "Confusion Matrix")' >> report.md
+          echo '![](./predline.png "Confusion Matrix")' >> report.md
 
-          cml-send-comment report.md
+          cml comment create report.md
