@@ -28,4 +28,4 @@ jobs:
           cml-publish input_data.png --md >> report.md
           cml-publish predline.png --md >> report.md
 
-          cml-comment-create report.md
+          cml-send-comment report.md
