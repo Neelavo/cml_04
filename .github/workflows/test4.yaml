@@ -24,7 +24,7 @@ jobs:
           echo "## Model Metrics" > report.md
           cat metrics.txt >> report.md
 
-          echo "## Data viz >> report.md
+          echo "## Data viz" >> report.md
           cml-publish input_data.png --md >> report.md
           cml-publish predline.png --md >> report.md
 
