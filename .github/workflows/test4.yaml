@@ -9,6 +9,7 @@ jobs:
       - name: Train model
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
         run: |
 
           # Your ML workflow goes here
