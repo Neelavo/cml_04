@@ -1,0 +1,25 @@
+name: CML
+on: [push]
+jobs:
+  train-and-report:
+    runs-on: ubuntu-latest
+    container: docker://ghcr.io/iterative/cml:0-dvc2-base1
+    steps:
+      - uses: actions/checkout@v3
+      - name: Train model
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        run: |
+
+          # Your ML workflow goes here
+          pip install -r requirements.txt
+          python copy_of_bestfitline.py
+
+          
+          cat metrics.txt >> report.md
+
+          echo '![](./input_data.png "Confusion Matrix")' >> report.md
+          echo '![](./predline.png "Confusion Matrix")' >> report.md
+
+          cml comment create report.md

@@ -13,6 +13,9 @@ import matplotlib.pyplot as plt
 x=np.linspace(1,100,30,endpoint=False)
 print(x)
 
+with open("metrics.txt", 'w') as outfile:
+        outfile.write("report file:\n")
+    
 y=np.zeros(30,dtype=float)
 
 y = [ 43,   62.9,  62.8,  82.7,  78.4,  75.,   81.6,  88.2,  94.8, 101.4, 152.,  151.9,
@@ -22,6 +25,8 @@ y = [ 43,   62.9,  62.8,  82.7,  78.4,  75.,   81.6,  88.2,  94.8, 101.4, 152., 
 print(y)
 
 plt.scatter(x,y)
+plt.savefig("input_data.png",dpi=120)
+plt.close() 
 
 m=7
 b=100
@@ -70,3 +75,4 @@ print(m,b)
 
 plt.plot(x,z,color='green')
 plt.scatter(x,y)
+plt.savefig("predline.png",dpi=120)
